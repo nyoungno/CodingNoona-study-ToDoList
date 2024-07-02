@@ -1,0 +1,87 @@
+@import "https://fonts.googleapis.com/css?family=Bungee";
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
+body {
+  margin: 0;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #201f5b;
+}
+.title-area {
+  font-family: "Bungee", sans-serif;
+  text-align: center;
+  margin: 0;
+}
+.container {
+  background-color: #e8e8e0;
+  min-height: 100vh;
+  max-width: 720px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  border: 10px solid white;
+  border-radius: 20px;
+}
+
+.task-area {
+  border: 1px solid lightgrey;
+}
+.task-tabs {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid lightgrey;
+  position: relative;
+  padding: 0;
+  font-family: "Jua", sans-serif;
+  font-weight: bolder;
+}
+
+.task-tabs div {
+  padding: 1em;
+}
+
+#under-line {
+  height: 4px;
+  background-color: #4b67d1;
+  position: absolute;
+  width: 33%;
+  left: 0px;
+  top: 60px;
+  padding: 0;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: bolder;
+}
+
+.task button {
+  border-radius: 7px;
+  padding: 3px;
+  font-weight: bolder;
+}
+
+.input-area {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.input-area input {
+  width: 70%;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.input-area button {
+  border-radius: 7px;
+  border: 1px solid #dddddd0a;
+  width: 30px;
+  padding: 3px;
+  font-weight: bolder;
+}
