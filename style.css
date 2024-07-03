@@ -38,6 +38,8 @@ body {
 
 .task-tabs div {
   padding: 1em;
+  z-index: 5;
+  cursor: pointer;
 }
 
 #under-line {
@@ -46,22 +48,25 @@ body {
   position: absolute;
   width: 33%;
   left: 0px;
-  top: 60px;
+  top: 52px;
   padding: 0;
 }
 
 .task {
   display: flex;
   justify-content: space-between;
-  padding-left: 15px;
-  padding-right: 15px;
+  width: 98.5%;
+  border: none;
+  position: relative;
+  border-radius: 10px;
+  background-color: #e8e8e0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  margin: 5px;
   font-weight: bolder;
 }
-
-.task button {
-  border-radius: 7px;
-  padding: 3px;
-  font-weight: bolder;
+.task span {
+  padding: 1em;
 }
 
 .input-area {
@@ -88,4 +93,29 @@ body {
 
 .task-done {
   text-decoration: line-through;
+  background-color: rgb(148, 148, 148);
+  transition: 0.7s;
+}
+.button-box {
+  display: flex;
+}
+.button-box button {
+  border: none;
+  width: 4em;
+  background-color: white;
+  transition: 0.5s;
+  border-radius: 10px;
+  height: 45px;
+  margin: 5px;
+}
+.button-box button :active {
+  position: relative;
+  top: 2px;
+}
+
+.button-box button:first-child:hover {
+  background-color: greenyellow;
+}
+.button-box button:nth-child(2):hover {
+  background-color: rgb(255, 0, 0, 0.3);
 }
