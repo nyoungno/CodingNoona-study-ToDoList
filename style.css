@@ -55,15 +55,9 @@ body {
 .task {
   display: flex;
   justify-content: space-between;
-  width: 98.5%;
-  border: none;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
   position: relative;
-  border-radius: 10px;
-  background-color: #e8e8e0;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-  margin: 5px;
-  font-weight: bolder;
 }
 .task span {
   padding: 1em;
@@ -100,13 +94,12 @@ body {
   display: flex;
 }
 .button-box button {
+  height: 100%;
   border: none;
-  width: 4em;
+  width: 5em;
+  margin: 0;
   background-color: white;
   transition: 0.5s;
-  border-radius: 10px;
-  height: 45px;
-  margin: 5px;
 }
 .button-box button :active {
   position: relative;
