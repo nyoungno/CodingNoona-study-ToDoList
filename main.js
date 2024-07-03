@@ -50,7 +50,7 @@ function render() {
   let resultHTML = ``;
   for (let i = 0; i < list.length; i++) {
     if (list[i].isComplete == true) {
-      resultHTML += `<div class="task task-done">
+      resultHTML += `<div class="task task-done id="${list[i].id}">
       <span class>${list[i].taskContent}</span>
       <div class="button-box">
           <button onclick="toggleComplete('${list[i].id}')"><i class="fa-solid fa-rotate-left"></i></button>
@@ -58,7 +58,7 @@ function render() {
       </div>
   </div>`;
     } else {
-      resultHTML += `<div class="task">
+      resultHTML += `<div class="task id="${list[i].id}">
       <span>${list[i].taskContent}</span>
       <div class="button-box">
           <button onclick="toggleComplete('${list[i].id}')"><i class="fa-solid fa-check" style="color: #0068b8;"></i></button>
@@ -72,16 +72,17 @@ function render() {
 
 function toggleComplete(id) {
   for (let i = 0; i < taskList.length; i++) {
-    if (taskList[i].id == id) {
+    if (taskList[i].id === id) {
       taskList[i].isComplete = !taskList[i].isComplete;
       break;
     }
-  } // 값을 업데이트하면 // UI도 업데이트!!
+  } // 값을 업데이트하면
+  // UI도 업데이트!!
   render();
 }
 function deleteTask(id) {
   for (let i = 0; i < taskList.length; i++) {
-    if (taskList[i].id == id) {
+    if (taskList[i].id === id) {
       taskList.splice(i, 1);
       break;
     }
@@ -90,9 +91,13 @@ function deleteTask(id) {
 }
 
 function filter(event) {
+  console.log("filter", event.target.id);
+
+  mode = event.target.id;
   filterList = [];
   if (mode === "all") {
     //전체 리스트를 보여준다
+    render();
   } else if (mode === "ongoing") {
     //진행중인 아이템을 보여준다
     //task.isComplete=false
@@ -101,6 +106,7 @@ function filter(event) {
         filterList.push(taskList[i]);
       }
     }
+    render();
   } else if (mode === "done") {
     //끝나는 케이스
     //task.isComplete=true
@@ -109,8 +115,8 @@ function filter(event) {
         filterList.push(taskList[i]);
       }
     }
+    render();
   }
-  render();
 }
 function randomIDGenerator() {
   // Math.random should be unique because of its seeding algorithm.
