@@ -35,7 +35,7 @@ function render() {
       <span class>${taskList[i].taskContent}</span>
       <div class="button-box">
           <button onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-rotate-left"></i></button>
-          <button onclick="deleteTask"><i class="fa-solid fa-trash" style="color: #db5151;"></i></button>
+          <button onclick="deleteTask('${taskList[i].id}')"><i class="fa-solid fa-trash" style="color: #db5151;"></i></button>
       </div>
   </div>`;
     } else {
@@ -43,7 +43,7 @@ function render() {
       <span>${taskList[i].taskContent}</span>
       <div class="button-box">
           <button onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-check" style="color: #0068b8;"></i></button>
-          <button onclick="deleteTask"><i class="fa-solid fa-trash" style="color: #db5151;"></i></button>
+          <button onclick="deleteTask('${taskList[i].id}')"><i class="fa-solid fa-trash" style="color: #db5151;"></i></button>
       </div>
   </div>`;
     }
@@ -57,12 +57,17 @@ function toggleComplete(id) {
       taskList[i].isComplete = !taskList[i].isComplete;
       break;
     }
+  } // 값을 업데이트하면
+  render(); // UI도 업데이트!!
+}
+function deleteTask(id) {
+  for (let i = 0; i < taskList.length; i++) {
+    if (taskList[i].id == id) {
+      taskList.splice(i, 1);
+      break;
+    }
   }
   render();
-  console.log(taskList);
-}
-function deleteTask() {
-  console.log("asdsa");
 }
 
 function randomIDGenerator() {
