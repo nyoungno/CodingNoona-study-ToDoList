@@ -58,6 +58,7 @@ body {
   width: 100%;
   border-bottom: 1px solid lightgray;
   position: relative;
+  font-weight: bold;
 }
 .task span {
   padding: 1em;
@@ -111,4 +112,8 @@ body {
 }
 .button-box button:nth-child(2):hover {
   background-color: rgb(255, 0, 0, 0.3);
+}
+
+.task-tabs div {
+  cursor: pointer;
 }
