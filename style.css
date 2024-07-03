@@ -85,3 +85,7 @@ body {
   padding: 3px;
   font-weight: bolder;
 }
+
+.task-done {
+  text-decoration: line-through;
+}
