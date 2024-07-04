@@ -42,14 +42,12 @@ body {
   cursor: pointer;
 }
 
-#under-line {
+#tab-underline {
   height: 4px;
   background-color: #4b67d1;
   position: absolute;
-  width: 33%;
-  left: 0px;
-  top: 52px;
   padding: 0;
+  transition: 0.5s;
 }
 
 .task {

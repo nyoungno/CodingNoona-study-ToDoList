@@ -16,6 +16,7 @@ let tabs = document.querySelectorAll(".task-tabs div");
 let taskList = [];
 let mode = "all";
 let filterList = [];
+let underLine = document.getElementById("tab-underline");
 
 addButton.addEventListener("click", addTask);
 
@@ -92,6 +93,10 @@ function deleteTask(id) {
 function filter(event) {
   if (event) {
     mode = event.target.id;
+    underLine.style.width = event.target.offsetWidth + "px";
+    underLine.style.left = event.target.offsetLeft + "px";
+    underLine.style.top =
+      event.target.offsetTop + (event.target.offsetHeight - 4) + "px";
   } // 진행중 상태에서 끝남으로 표시하면 바로 사라지는 부분은 event가 없음 그래서 조건추가
 
   filterList = [];
