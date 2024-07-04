@@ -78,45 +78,37 @@ function toggleComplete(id) {
     }
   } // 값을 업데이트하면
   // UI도 업데이트!!
-  render();
+  filter();
 }
 function deleteTask(id) {
   for (let i = 0; i < taskList.length; i++) {
     if (taskList[i].id === id) {
       taskList.splice(i, 1);
-      break;
     }
   }
-  render();
+  filter();
 }
 
 function filter(event) {
-  console.log("filter", event.target.id);
+  if (event) {
+    mode = event.target.id;
+  } // 진행중 상태에서 끝남으로 표시하면 바로 사라지는 부분은 event가 없음 그래서 조건추가
 
-  mode = event.target.id;
   filterList = [];
-  if (mode === "all") {
-    //전체 리스트를 보여준다
-    render();
-  } else if (mode === "ongoing") {
-    //진행중인 아이템을 보여준다
-    //task.isComplete=false
+  if (mode === "ongoing") {
     for (let i = 0; i < taskList.length; i++) {
       if (taskList[i].isComplete == false) {
         filterList.push(taskList[i]);
       }
     }
-    render();
   } else if (mode === "done") {
-    //끝나는 케이스
-    //task.isComplete=true
     for (let i = 0; i < taskList.length; i++) {
-      if (taskList[i].isComplete == true) {
+      if (taskList[i].isComplete) {
         filterList.push(taskList[i]);
       }
     }
-    render();
   }
+  render();
 }
 function randomIDGenerator() {
   // Math.random should be unique because of its seeding algorithm.
