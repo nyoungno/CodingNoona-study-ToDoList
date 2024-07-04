@@ -30,6 +30,7 @@ for (let i = 1; i < tabs.length; i++) {
     filter(event);
   });
 }
+
 function addTask() {
   let taskValue = taskInput.value;
   if (taskValue === "") return alert("할일을 입력해주세요");

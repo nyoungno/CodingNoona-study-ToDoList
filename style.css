@@ -78,7 +78,7 @@ body {
 }
 .input-area button {
   border-radius: 7px;
-  border: 1px solid #dddddd0a;
+  border: 1px solid lightgrey;
   width: 30px;
   padding: 3px;
   font-weight: bolder;
