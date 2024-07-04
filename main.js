@@ -19,6 +19,11 @@ let filterList = [];
 let underLine = document.getElementById("tab-underline");
 
 addButton.addEventListener("click", addTask);
+taskInput.addEventListener("keydown", function (event) {
+  if (event.keyCode === 13) {
+    addTask(event);
+  }
+});
 
 for (let i = 1; i < tabs.length; i++) {
   tabs[i].addEventListener("click", function (event) {
@@ -26,14 +31,18 @@ for (let i = 1; i < tabs.length; i++) {
   });
 }
 function addTask() {
+  let taskValue = taskInput.value;
+  if (taskValue === "") return alert("할일을 입력해주세요");
   let task = {
     id: randomIDGenerator(),
     taskContent: taskInput.value,
     isComplete: false,
   };
+
   taskList.push(task);
+  taskInput.value = "";
   console.log(taskList);
-  render();
+  filter();
 }
 
 function render() {
